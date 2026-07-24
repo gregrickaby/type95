@@ -22,3 +22,11 @@ export const Cancel: Story = {
 export const Disabled: Story = {
   args: {disabled: true}
 }
+
+export const AsLink: Story = {
+  args: {
+    component: 'a',
+    href: '#',
+    children: 'Learn more'
+  }
+}

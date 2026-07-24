@@ -3,3 +3,5 @@
 /storybook-static
 /coverage
 package-lock.json
+mcp-server/node_modules
+mcp-server/dist

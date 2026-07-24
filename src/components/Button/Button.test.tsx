@@ -1,4 +1,5 @@
 import {axe} from 'jest-axe'
+import {createRef} from 'react'
 import {describe, expect, it, vi} from 'vitest'
 import {render, screen, user} from '@/test-utils'
 import {Button} from './Button'
@@ -51,5 +52,22 @@ describe('Button', () => {
     const {container} = render(<Button>OK</Button>)
     const results = await axe(container)
     expect(results).toHaveNoViolations()
+  })
+
+  it('forwards a ref to the underlying button element', () => {
+    const ref = createRef<HTMLButtonElement>()
+    render(<Button ref={ref}>OK</Button>)
+    expect(ref.current).toBeInstanceOf(HTMLButtonElement)
+  })
+
+  it('renders as a different element via the component prop', () => {
+    render(
+      <Button component="a" href="/help">
+        Help
+      </Button>
+    )
+    const link = screen.getByRole('link', {name: 'Help'})
+    expect(link).toHaveAttribute('href', '/help')
+    expect(link).not.toHaveAttribute('type')
   })
 })

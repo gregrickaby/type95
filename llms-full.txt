@@ -1,0 +1,104 @@
+# type95 — full reference
+
+> Retro OS-skinned React component library: Windows 95, 98, XP, 7, 10 (WIP)
+
+Generated from source (component JSDoc + src/tokens/base.css). Regenerate
+via `npm run generate:llms` whenever a component's public API changes.
+
+## Install
+
+```bash
+npm install type95
+```
+
+This package ships `.module.css` files unprocessed (`bundle: false` in
+tsup) — your bundler must apply CSS Modules scoped hashing itself.
+Next.js, Vite, and webpack all do this out of the box.
+
+## Type95Provider
+
+Server-safe: sets a static `data-skin` attribute at render time, no
+client JS required.
+
+```tsx
+import {Type95Provider} from 'type95'
+
+<Type95Provider skin="win98">{children}</Type95Provider>
+```
+
+For live runtime switching without a re-render, use `setSkin(skin)` /
+`getSkin()` (`'use client'`) instead of changing the `skin` prop:
+
+```tsx
+import {setSkin, getSkin} from 'type95'
+
+setSkin('winxp')
+getSkin() // 'winxp'
+```
+
+## Skins
+
+- **win95** — done — flat title bar
+- **win98** — done — gradient "web style" title bar
+- **winxp** — done — Luna blue, rounded corners
+- **win7** — placeholder tokens only — Aero glass not designed
+- **win10** — placeholder tokens only — Fluent flat not designed
+
+Switch by setting `data-skin` on an ancestor element (`Type95Provider`
+does this for you). Every component's CSS Module reads only `--t95-*`
+custom properties; each skin file in `src/tokens/` overrides them under
+`[data-skin="..."]`.
+
+## Component authoring pattern
+
+Built-in components are created with `factory()` (ref-forwarding,
+`{props, ref}` payload) or `polymorphicFactory()` (adds a `component`
+prop for rendering as a different element, e.g. `<Button component="a"
+href="...">`). Both are exported from `type95` for building your own
+components that share the same ref-forwarding/polymorphism behavior as
+built-ins. No Styles API (no `classNames`/`styles`/`vars` runtime
+overrides) — styling is CSS Modules + `--t95-*` tokens only, merge a
+consumer `className` the same way `Button` does.
+
+## Components
+
+### Button
+
+Classic raised 3D bevel button. Styling comes entirely from `--t95-*`
+custom properties (see src/tokens), so the same markup renders correctly
+under any `data-skin` ancestor without a JS branch on skin.
+
+Renders a `<button>` by default; pass `component="a"` (with `href`) to
+render a link styled as a button. `type="button"` is only defaulted for
+the native `<button>` case — other elements don't get a `type` attribute.
+
+- Import: `import {Button} from 'type95'`
+- Client component: no (server-safe by default)
+- Polymorphic: renders as `<button>` by default; pass `component="..."` to render as a different element, plus that element's own native props
+- Storybook: https://gregrickaby.github.io/type95/?path=/story/components-button--default
+
+## Tokens (`src/tokens/base.css` defaults)
+
+- `--t95-face`: #c0c0c0
+- `--t95-face-text`: #000000
+- `--t95-border-lightest`: #ffffff
+- `--t95-border-light`: #dfdfdf
+- `--t95-border-dark`: #808080
+- `--t95-border-darkest`: #000000
+- `--t95-titlebar-bg`: #000080
+- `--t95-titlebar-bg-end`: #000080
+- `--t95-titlebar-text`: #ffffff
+- `--t95-titlebar-bg-inactive`: #808080
+- `--t95-titlebar-text-inactive`: #c0c0c0
+- `--t95-highlight-bg`: #000080
+- `--t95-highlight-text`: #ffffff
+- `--t95-disabled-text`: #808080
+- `--t95-font`: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif
+- `--t95-font-size`: 11px
+- `--t95-radius`: 0px
+- `--t95-focus-outline`: 1px dotted #000000
+
+## Roadmap
+
+Backlog (not started): Window, TitleBar, TextInput, Panel/Cutout,
+ScrollView, MenuList, Tabs, Checkbox, Radio, Divider.

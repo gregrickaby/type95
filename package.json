@@ -6,6 +6,9 @@
   "type": "module",
   "license": "MIT",
   "author": "Greg Rickaby <greg@gregrickaby.com>",
+  "workspaces": [
+    "mcp-server"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gregrickaby/type95.git"
@@ -22,16 +25,19 @@
     "./tokens/*.css": "./dist/tokens/*.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "llms.txt",
+    "llms-full.txt"
   ],
   "engines": {
     "node": ">=24"
   },
   "scripts": {
-    "build": "tsup",
-    "build-storybook": "storybook build",
+    "build": "npm run generate:llms && tsup",
+    "build-storybook": "storybook build && cp llms.txt llms-full.txt storybook-static/",
     "format": "prettier '**/*.{mjs,cjs,js,jsx,ts,tsx,md,css,json,yml,yaml}' --ignore-path .prettierignore --cache --write",
     "format:check": "prettier '**/*.{mjs,cjs,js,jsx,ts,tsx,md,css,json,yml,yaml}' --ignore-path .prettierignore --check",
+    "generate:llms": "node scripts/generate-llms.mjs",
     "lint": "eslint --fix",
     "storybook": "storybook dev -p 6006",
     "test": "vitest run",

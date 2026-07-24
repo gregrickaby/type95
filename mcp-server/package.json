@@ -1,0 +1,30 @@
+{
+  "name": "type95-mcp-server",
+  "private": true,
+  "description": "MCP server exposing Type95 component docs to AI agents (list/get/search). Early scaffold — grows as components are added.",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "type95-mcp-server": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  }
+}

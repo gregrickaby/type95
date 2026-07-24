@@ -29,6 +29,16 @@ export default defineConfig(
   },
 
   {
+    files: ['scripts/**/*.mjs', 'mcp-server/**/*.ts'],
+    languageOptions: {
+      globals: {
+        console: 'readonly',
+        process: 'readonly'
+      }
+    }
+  },
+
+  {
     rules: {
       'no-console': ['error', {allow: ['warn', 'error', 'info']}]
     }

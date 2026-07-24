@@ -61,6 +61,41 @@ Built: `Button`
 Backlog (not started): `Window`, `TitleBar`, `TextInput`, `Panel`/`Cutout`,
 `ScrollView`, `MenuList`, `Tabs`, `Checkbox`, `Radio`, `Divider`
 
+## AI / agent-ready
+
+Type95 is set up for AI coding agents (Claude Code, Cursor, Windsurf, etc.)
+out of the box, following the same shape as [mantine.dev](https://mantine.dev):
+
+- **`llms.txt` / `llms-full.txt`** — generated from component JSDoc +
+  `src/tokens/base.css` via `npm run generate:llms`. Served at
+  `https://gregrickaby.github.io/type95/llms.txt` and
+  `https://gregrickaby.github.io/type95/llms-full.txt`, and shipped inside
+  the npm package.
+- **Agent Skills** (`skills/`) — `type95-usage` (installing and using the
+  library) and `type95-custom-components` (building your own components
+  that skin correctly). Install with:
+
+  ```bash
+  npx skills add https://github.com/gregrickaby/type95 --skill type95-usage
+  npx skills add https://github.com/gregrickaby/type95 --skill type95-custom-components
+  ```
+
+- **MCP server** (`mcp-server/`, package `type95-mcp-server`) — exposes
+  `list_components`, `get_component_doc`, and `search_docs` tools over
+  stdio. Early scaffold (see `mcp-server/README.md`); point your tool at
+  the built server:
+
+  ```json
+  {
+    "mcpServers": {
+      "type95": {
+        "command": "node",
+        "args": ["/absolute/path/to/type95/mcp-server/dist/index.js"]
+      }
+    }
+  }
+  ```
+
 ## Commands
 
 ```bash
@@ -68,8 +103,9 @@ npm run validate       # Format + typecheck + lint
 npm test                # Run tests
 npm run test:coverage   # Coverage report (utilities/hooks 100%, components 80%+)
 npm run storybook       # Storybook dev server
-npm run build            # tsup build -> dist/
-npm run build-storybook  # Static Storybook build
+npm run generate:llms   # Regenerate llms.txt / llms-full.txt / mcp-server data
+npm run build            # generate:llms + tsup build -> dist/
+npm run build-storybook  # Static Storybook build (includes llms.txt/llms-full.txt)
 ```
 
 ## License

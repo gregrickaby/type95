@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-24T02:45:25.766Z",
+  "package": "type95",
+  "components": [
+    {
+      "name": "Button",
+      "description": "Classic raised 3D bevel button. Styling comes entirely from `--t95-*`\ncustom properties (see src/tokens), so the same markup renders correctly\nunder any `data-skin` ancestor without a JS branch on skin.\n\nRenders a `<button>` by default; pass `component=\"a\"` (with `href`) to\nrender a link styled as a button. `type=\"button\"` is only defaulted for\nthe native `<button>` case — other elements don't get a `type` attribute.",
+      "importPath": "type95",
+      "polymorphic": true,
+      "defaultElement": "button",
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-button--default"
+    }
+  ]
+}
