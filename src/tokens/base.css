@@ -64,4 +64,235 @@
   --t95-button-shadow-focus: none;
 
   --t95-button-disabled-text-shadow: 1px 1px 0 var(--t95-border-lightest);
+
+  /* Checkbox recipe tokens — win95/98 exact recipe from jdan/98.css
+     (style.css `--border-field`, `input[type="checkbox"]` rules, and
+     `icon/checkmark.svg` / `icon/checkmark-disabled.svg`; see
+     docs/visual-reference.md). The sunken bevel is `--border-field` with
+     its shade vars mapped 1:1: --button-highlight->border-lightest,
+     --button-shadow->border-dark, --button-face->border-light (NOT
+     --t95-face — 98.css's --button-face #dfdfdf is a distinct "light
+     bevel" shade from --surface #c0c0c0), --window-frame->border-darkest.
+     The checkmark glyph is the literal sourced SVG inlined as a data URI
+     (7x7, fill:black) — a CSS-drawn shape can't reproduce its exact
+     pixel-stepped silhouette, and `black` here is deliberately literal,
+     not `--t95-face-text` (#222222) — the source SVG fill is pure black,
+     a different value from the body text color. */
+  --t95-checkbox-size: 13px;
+  --t95-checkbox-check-size: 7px;
+  --t95-checkbox-background: #ffffff;
+  --t95-checkbox-background-active: var(--t95-face);
+  --t95-checkbox-background-disabled: var(--t95-face);
+  --t95-checkbox-background-hover: var(--t95-checkbox-background);
+  --t95-checkbox-border: none;
+  --t95-checkbox-border-hover: none;
+  --t95-checkbox-border-disabled: none;
+  --t95-checkbox-shadow:
+    inset -1px -1px var(--t95-border-lightest),
+    inset 1px 1px var(--t95-border-dark),
+    inset -2px -2px var(--t95-border-light),
+    inset 2px 2px var(--t95-border-darkest);
+  --t95-checkbox-shadow-hover: var(--t95-checkbox-shadow);
+  --t95-checkbox-shadow-disabled: var(--t95-checkbox-shadow);
+  --t95-checkbox-check-content: '';
+  --t95-checkbox-check-color: transparent;
+  --t95-checkbox-check-color-disabled: transparent;
+  --t95-checkbox-check-image: url("data:image/svg+xml,%3Csvg width='7' height='7' viewBox='0 0 7 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z' fill='black'/%3E%3C/svg%3E");
+  --t95-checkbox-check-image-disabled: url("data:image/svg+xml,%3Csvg width='7' height='7' viewBox='0 0 7 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 0H6V1H5V2H4V3H3V4H2V3H1V2H0V5H1V6H2V7H3V6H4V5H5V4H6V3H7V0Z' fill='%23808080'/%3E%3C/svg%3E");
+
+  /* Radio recipe tokens — win95/98 exact recipe from jdan/98.css. The
+     round sunken bevel is `icon/radio-border.svg` (12x12), inlined as a
+     data URI: a plain CSS `border-radius: 50%` + box-shadow can't
+     reproduce its blocky, stepped-pixel circle, only a smooth
+     anti-aliased one. `radio-border-disabled.svg` is reused by the
+     source for BOTH the momentary `:active` (pressed) state and the
+     permanent `[disabled]` state — that's not a simplification, it's
+     what 98.css itself does. Dot glyph is `icon/radio-dot.svg`
+     (4x4, fill:black), same "literal black, not face-text" reasoning as
+     the checkbox glyph above. */
+  --t95-radio-size: 12px;
+  --t95-radio-dot-size: 4px;
+  --t95-radio-background: #ffffff
+    url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 0H4V1H2V2H1V4H0V8H1V10H2V8H1V4H2V2H4V1H8V2H10V1H8V0Z' fill='%23808080'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 1H4V2H2V3V4H1V8H2V9H3V8H2V4H3V3H4V2H8V3H10V2H8V1Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 3H10V4H9V3ZM10 8V4H11V8H10ZM8 10V9H9V8H10V9V10H8ZM4 10V11H8V10H4ZM4 10V9H2V10H4Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 2H10V4H11V8H10V10H8V11H4V10H2V11H4V12H8V11H10V10H11V8H12V4H11V2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 2H8V3H9V4H10V8H9V9H8V10H4V9H3V8H2V4H3V3H4V2Z' fill='white'/%3E%3C/svg%3E")
+    no-repeat center / 12px 12px;
+  --t95-radio-background-active: #ffffff
+    url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 0H4V1H2V2H1V4H0V8H1V10H2V8H1V4H2V2H4V1H8V2H10V1H8V0Z' fill='%23808080'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 1H4V2H2V3V4H1V8H2V9H3V8H2V4H3V3H4V2H8V3H10V2H8V1Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 3H10V4H9V3ZM10 8V4H11V8H10ZM8 10V9H9V8H10V9V10H8ZM4 10V11H8V10H4ZM4 10V9H2V10H4Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 2H10V4H11V8H10V10H8V11H4V10H2V11H4V12H8V11H10V10H11V8H12V4H11V2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4 2H8V3H9V4H10V8H9V9H8V10H4V9H3V8H2V4H3V3H4V2Z' fill='%23C0C0C0'/%3E%3C/svg%3E")
+    no-repeat center / 12px 12px;
+  --t95-radio-background-disabled: var(--t95-radio-background-active);
+  --t95-radio-background-hover: var(--t95-radio-background);
+  --t95-radio-border: none;
+  --t95-radio-border-hover: none;
+  --t95-radio-border-disabled: none;
+  --t95-radio-shadow: none;
+  --t95-radio-shadow-hover: none;
+  --t95-radio-shadow-disabled: none;
+  --t95-radio-disabled-filter: none;
+  --t95-radio-dot-background: none;
+  --t95-radio-dot-border: none;
+  --t95-radio-dot-shadow: none;
+  --t95-radio-dot-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 0H1V1H0V2V3H1V4H3V3H4V2V1H3V0Z' fill='black'/%3E%3C/svg%3E");
+  --t95-radio-dot-image-disabled: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M3 0H1V1H0V2V3H1V4H3V3H4V2V1H3V0Z' fill='%23808080'/%3E%3C/svg%3E");
+
+  /* TextInput recipe tokens — win95/98 exact recipe from jdan/98.css
+     (`input[type="text"]` block: height 21px, padding 3px 4px,
+     `box-shadow: var(--border-field)`, `background: var(--button-highlight)`,
+     disabled/read-only background `var(--surface)`). No border (bevel is
+     the box-shadow); `:focus` in the source sets `outline: none` with no
+     replacement, i.e. genuinely no visible focus change for this era —
+     Type95 doesn't re-add an `outline: none` override, just doesn't
+     define a distinct focus recipe, so the browser's own default focus
+     ring still shows rather than being suppressed. */
+  --t95-textinput-height: 21px;
+  --t95-textinput-radius: 0px;
+  --t95-textinput-padding: 3px 4px;
+  --t95-textinput-background: #ffffff;
+  --t95-textinput-background-disabled: var(--t95-face);
+  --t95-textinput-border-width: 0;
+  --t95-textinput-border-style: none;
+  --t95-textinput-border-color: transparent;
+  --t95-textinput-border-color-hover: transparent;
+  --t95-textinput-border-color-focus: transparent;
+  --t95-textinput-border-color-disabled: transparent;
+  --t95-textinput-shadow:
+    inset -1px -1px var(--t95-border-lightest),
+    inset 1px 1px var(--t95-border-dark),
+    inset -2px -2px var(--t95-border-light),
+    inset 2px 2px var(--t95-border-darkest);
+  --t95-textinput-shadow-hover: var(--t95-textinput-shadow);
+  --t95-textinput-shadow-focus: var(--t95-textinput-shadow);
+  --t95-textinput-shadow-disabled: var(--t95-textinput-shadow);
+  --t95-textinput-color-disabled: var(--t95-face-text);
+
+  /* Panel recipe tokens — generic bordered container (GroupBox/"Cutout").
+     `flat` = jdan/98.css's `fieldset` rule (`border-image:
+     svg-load("./icon/groupbox-border.svg") 2`, no background). `sunken`
+     = its `.sunken-panel` rule (`border-image:
+     svg-load("./icon/sunken-panel-border.svg") 2`, white background) —
+     both inlined as data URIs, same reasoning as the radio bevel above
+     (a stepped-pixel groove can't come from box-shadow). `raised` has no
+     GroupBox-shaped equivalent in the source; it reuses the button's own
+     `--border-raised-outer`/`-inner` bevel math, which *is* directly
+     sourced (see Button). Panel doesn't replicate the source's asymmetric
+     fieldset padding (10px sides/bottom, 8px top, from
+     `--element-spacing`) since it's a generic 3-variant container, not a
+     fieldset-only one — padding is fixed in Panel.module.css instead. */
+  --t95-panel-radius: 0px;
+  --t95-panel-background-raised: var(--t95-face);
+  --t95-panel-background-sunken: #ffffff;
+  --t95-panel-background-flat: transparent;
+  --t95-panel-border-raised: none;
+  --t95-panel-border-sunken: 2px solid transparent;
+  --t95-panel-border-flat: 2px solid transparent;
+  --t95-panel-border-image-raised: none;
+  --t95-panel-border-image-sunken: url("data:image/svg+xml,%3Csvg width='5' height='5' viewBox='0 0 5 5' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='4' height='1' x='0' y='0' fill='%23808080'/%3E%3Crect width='1' height='4' x='0' y='0' fill='%23808080'/%3E%3Crect width='2' height='1' x='1' y='1' fill='%230a0a0a'/%3E%3Crect width='1' height='2' x='1' y='1' fill='%230a0a0a'/%3E%3Crect width='5' height='1' x='0' y='4' fill='%23fff'/%3E%3Crect width='1' height='5' x='4' y='0' fill='%23fff'/%3E%3Crect width='1' height='3' x='3' y='1' fill='%23dfdfdf'/%3E%3Crect width='3' height='1' x='1' y='3' fill='%23dfdfdf'/%3E%3C/svg%3E")
+    2;
+  --t95-panel-border-image-flat: url("data:image/svg+xml,%3Csvg width='5' height='5' viewBox='0 0 5 5' fill='grey' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H5V5H0V2H2V3H3V2H0' fill='white' /%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0H4V4H0V1H1V3H3V1H0' fill='%23808080' /%3E%3C/svg%3E")
+    2;
+  --t95-panel-shadow-raised:
+    inset -1px -1px var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-lightest),
+    inset -2px -2px var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-light);
+  --t95-panel-shadow-sunken: none;
+
+  /* TitleBar/Window recipe tokens — win95/98 exact recipe from jdan/98.css
+     (`.window`/`.title-bar` rules; see docs/visual-reference.md). Window's
+     bevel is `--border-window-outer/-inner`, the button/panel-raised bevel
+     with face and highlight swapped — a genuinely distinct shadow, not a
+     copy-paste of --t95-panel-shadow-raised. The title bar background
+     itself reuses the 5 --t95-titlebar-* tokens already defined above
+     (bg/bg-end/text/bg-inactive/text-inactive) via a 90deg 2-stop
+     gradient — those tokens were pre-declared before TitleBar existed
+     specifically so this would just work. The close-box button reuses
+     this same win95/98 recipe's --t95-button-* bevel (98.css's
+     `.title-bar-controls button` never overrides box-shadow, it only
+     resizes it), so its dedicated tokens below just alias --t95-button-*
+     — XP/7/10 override them independently since those skins *do* give
+     title-bar buttons a distinct flat look. */
+  --t95-window-radius: 0px;
+  --t95-window-padding: 3px;
+  --t95-window-background: var(--t95-face);
+  --t95-window-border: none;
+  --t95-window-shadow:
+    inset -1px -1px var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-light),
+    inset -2px -2px var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-lightest);
+  --t95-window-body-background: transparent;
+  --t95-window-body-border: none;
+  --t95-window-body-shadow: none;
+
+  --t95-titlebar-radius: 0px;
+  --t95-titlebar-padding: 3px 2px 3px 3px;
+  --t95-titlebar-font-weight: bold;
+  --t95-titlebar-close-width: 16px;
+  --t95-titlebar-close-height: 14px;
+  --t95-titlebar-close-background: var(--t95-button-background);
+  --t95-titlebar-close-background-hover: var(--t95-button-background-hover);
+  --t95-titlebar-close-background-active: var(--t95-button-background-active);
+  --t95-titlebar-close-border: var(--t95-button-border);
+  --t95-titlebar-close-shadow: var(--t95-button-shadow);
+  --t95-titlebar-close-color: var(--t95-face-text);
+
+  /* ScrollView recipe tokens — win95/98 exact recipe from jdan/98.css
+     (`.sunken-panel` + `::-webkit-scrollbar*`; see
+     docs/visual-reference.md). The box itself deliberately reuses
+     --t95-panel-* sunken tokens (98.css's `.sunken-panel` literally is
+     "Panel sunken variant + overflow:auto") rather than a duplicate
+     token set. `::-webkit-scrollbar` only styles in Chromium/Safari —
+     Firefox falls back to its native scrollbar, a real limitation of the
+     source library too, not a Type95 gap. Track/thumb/arrow-button
+     glyphs below are the literal sourced SVGs inlined as data URIs, same
+     "stepped-pixel shape" reasoning as the checkbox/radio glyphs. */
+  --t95-scrollbar-size: 16px;
+  --t95-scrollbar-track-background: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M1 0H0V1H1V2H2V1H1V0Z' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 0H1V1H0V2H1V1H2V0Z' fill='white'/%3E%3C/svg%3E");
+  --t95-scrollbar-thumb-background: var(--t95-face);
+  --t95-scrollbar-thumb-border: none;
+  --t95-scrollbar-thumb-shadow:
+    inset -1px -1px var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-lightest),
+    inset -2px -2px var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-light);
+  --t95-scrollbar-thumb-radius: 0px;
+  --t95-scrollbar-button-background: var(--t95-face);
+  --t95-scrollbar-button-up: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-down: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-left: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-right: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z' fill='black'/%3E%3C/svg%3E");
+
+  /* MenuList recipe tokens — no dedicated "menu bar" component exists in
+     98.css or XP.css (see docs/visual-reference.md); win95/98/XP's real
+     convention is that a hovered/focused item inverts to the system
+     highlight color, so hover/focus deliberately reuse the
+     --t95-highlight-bg/-text tokens already defined above rather than a
+     new pair. Win7 gets its own sourced #3399ff (khang-nd/7.css's
+     `_menu.scss`), a genuinely distinct blue from its button/element
+     family, not a typo. */
+  --t95-menu-background: var(--t95-face);
+  --t95-menu-border: none;
+  --t95-menu-item-padding: 4px 10px;
+  --t95-menu-item-color: var(--t95-face-text);
+  --t95-menu-item-background-hover: var(--t95-highlight-bg);
+  --t95-menu-item-color-hover: var(--t95-highlight-text);
+  --t95-menu-item-color-disabled: var(--t95-disabled-text);
+
+  /* Tabs recipe tokens — sourced directly from the same
+     `menu[role=tablist]` / `[role=tabpanel]` rules as jdan/98.css (see
+     docs/visual-reference.md). All 3 pixel-measured libraries share the
+     identical "selected tab overlaps the panel" trick, reproduced via
+     margin/z-index directly in Tabs.module.css rather than a token
+     (structural, not thematic — same precedent as Panel's fixed
+     padding). */
+  --t95-tabs-item-background: var(--t95-face);
+  --t95-tabs-item-background-selected: var(--t95-face);
+  --t95-tabs-item-border:
+    inset -1px 0 var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-light), inset -2px 0 var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-lightest);
+  --t95-tabs-item-radius: 3px 3px 0 0;
+  --t95-tabs-item-padding: 3px 6px;
+  --t95-tabs-item-color: #222222;
+  --t95-tabs-panel-background: var(--t95-face);
+  --t95-tabs-panel-border: none;
+  --t95-tabs-panel-shadow: none;
 }

@@ -50,4 +50,142 @@
   --t95-button-shadow-focus: none;
 
   --t95-button-disabled-text-shadow: none;
+
+  /* Checkbox/Radio/TextInput/Panel recipes — like the button block above,
+     best-effort Fluent approximation. UNLIKE win95/98/xp/7, there is no
+     pixel-measured CSS library for any of these Windows 10 controls (see
+     docs/visual-reference.md's "no equivalent to 98.css/XP.css/7.css
+     exists for Windows 10" note) — every value below is inferred from the
+     Fluent 2 corner-radius spec cited in that doc and the same
+     `#0078d7`-family accent color already used for the button, not
+     measured from a real recipe. Checkmark/dot use the same Unicode-glyph
+     technique as win7 (no sourced SVG asset exists to be more literal
+     than that). Treat this whole block as the one skin still awaiting a
+     real source, exactly like the button block above. */
+  --t95-checkbox-size: 14px;
+  --t95-checkbox-check-size: 14px;
+  --t95-checkbox-background: #ffffff;
+  --t95-checkbox-background-active: #ffffff;
+  --t95-checkbox-background-disabled: #f3f3f3;
+  --t95-checkbox-background-hover: #ffffff;
+  --t95-checkbox-border: 1px solid #8a8a8a;
+  --t95-checkbox-border-hover: 1px solid #0078d7;
+  --t95-checkbox-border-disabled: 1px solid #e1e1e1;
+  --t95-checkbox-shadow: none;
+  --t95-checkbox-shadow-hover: none;
+  --t95-checkbox-shadow-disabled: none;
+  --t95-checkbox-check-content: '\2714';
+  --t95-checkbox-check-color: #0078d7;
+  --t95-checkbox-check-color-disabled: #a0a0a0;
+  --t95-checkbox-check-image: none;
+  --t95-checkbox-check-image-disabled: none;
+
+  --t95-radio-size: 14px;
+  --t95-radio-dot-size: 8px;
+  --t95-radio-background: #ffffff;
+  --t95-radio-background-active: #ffffff;
+  --t95-radio-background-disabled: #f3f3f3;
+  --t95-radio-background-hover: #ffffff;
+  --t95-radio-border: 1px solid #8a8a8a;
+  --t95-radio-border-hover: 1px solid #0078d7;
+  --t95-radio-border-disabled: 1px solid #e1e1e1;
+  --t95-radio-shadow: none;
+  --t95-radio-shadow-hover: none;
+  --t95-radio-shadow-disabled: none;
+  --t95-radio-disabled-filter: none;
+  --t95-radio-dot-background: #0078d7;
+  --t95-radio-dot-border: none;
+  --t95-radio-dot-shadow: none;
+  --t95-radio-dot-image: none;
+  --t95-radio-dot-image-disabled: none;
+
+  --t95-textinput-height: 23px;
+  --t95-textinput-radius: var(--t95-radius);
+  --t95-textinput-padding: 3px 4px;
+  --t95-textinput-background: #ffffff;
+  --t95-textinput-background-disabled: #f3f3f3;
+  --t95-textinput-border-width: 1px;
+  --t95-textinput-border-style: solid;
+  --t95-textinput-border-color: #8a8a8a;
+  --t95-textinput-border-color-hover: #8a8a8a;
+  --t95-textinput-border-color-focus: #0078d7;
+  --t95-textinput-border-color-disabled: #e1e1e1;
+  --t95-textinput-shadow: none;
+  --t95-textinput-shadow-hover: none;
+  --t95-textinput-shadow-focus: none;
+  --t95-textinput-shadow-disabled: none;
+  --t95-textinput-color-disabled: #a0a0a0;
+
+  --t95-panel-radius: var(--t95-radius);
+  --t95-panel-background-raised: #f3f3f3;
+  --t95-panel-background-sunken: transparent;
+  --t95-panel-background-flat: transparent;
+  --t95-panel-border-raised: 1px solid #c8c8c8;
+  --t95-panel-border-sunken: 1px solid #c8c8c8;
+  --t95-panel-border-flat: 1px solid #c8c8c8;
+  --t95-panel-border-image-raised: none;
+  --t95-panel-border-image-sunken: none;
+  --t95-panel-border-image-flat: none;
+  --t95-panel-shadow-raised: none;
+  --t95-panel-shadow-sunken: none;
+
+  /* TitleBar/Window/ScrollView/MenuList/Tabs — like every other win10
+     block in this file, no sourced recipe exists for Windows 10 window
+     chrome/scrollbars/menus (see docs/visual-reference.md's repeated "no
+     equivalent to 98.css/XP.css/7.css exists for Windows 10" note). Flat
+     Fluent approximation using the corner-radius spec and #0078d7 accent
+     already used for Button, not measured. Close-button hover red
+     (#e81123) is the one genuinely documented Fluent/Win10-11 convention
+     here (native close-button hover has been red since Windows 10), not
+     an invented value. */
+  --t95-window-radius: 2px;
+  --t95-window-padding: 0;
+  --t95-window-background: var(--t95-face);
+  --t95-window-border: 1px solid #8a8a8a;
+  --t95-window-shadow: none;
+  --t95-window-body-background: transparent;
+  --t95-window-body-border: none;
+  --t95-window-body-shadow: none;
+
+  --t95-titlebar-radius: 2px 2px 0 0;
+  --t95-titlebar-padding: 6px 0 6px 8px;
+  --t95-titlebar-font-weight: normal;
+  --t95-titlebar-close-width: 46px;
+  --t95-titlebar-close-height: 32px;
+  --t95-titlebar-close-background: transparent;
+  --t95-titlebar-close-background-hover: #e81123;
+  --t95-titlebar-close-background-active: #f1707a;
+  --t95-titlebar-close-border: none;
+  --t95-titlebar-close-shadow: none;
+  --t95-titlebar-close-color: #ffffff;
+
+  --t95-scrollbar-size: 16px;
+  --t95-scrollbar-track-background: #f3f3f3;
+  --t95-scrollbar-thumb-background: #c8c8c8;
+  --t95-scrollbar-thumb-border: none;
+  --t95-scrollbar-thumb-shadow: none;
+  --t95-scrollbar-thumb-radius: 0px;
+  --t95-scrollbar-button-background: #f3f3f3;
+  --t95-scrollbar-button-up: none;
+  --t95-scrollbar-button-down: none;
+  --t95-scrollbar-button-left: none;
+  --t95-scrollbar-button-right: none;
+
+  --t95-menu-background: #ffffff;
+  --t95-menu-border: 1px solid #c8c8c8;
+  --t95-menu-item-padding: 6px 10px;
+  --t95-menu-item-color: #000000;
+  --t95-menu-item-background-hover: #0078d7;
+  --t95-menu-item-color-hover: #ffffff;
+  --t95-menu-item-color-disabled: #a0a0a0;
+
+  --t95-tabs-item-background: transparent;
+  --t95-tabs-item-background-selected: #ffffff;
+  --t95-tabs-item-border: none;
+  --t95-tabs-item-radius: var(--t95-radius) var(--t95-radius) 0 0;
+  --t95-tabs-item-padding: 6px 12px;
+  --t95-tabs-item-color: #000000;
+  --t95-tabs-panel-background: #ffffff;
+  --t95-tabs-panel-border: 1px solid #c8c8c8;
+  --t95-tabs-panel-shadow: none;
 }

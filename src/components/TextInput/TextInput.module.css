@@ -1,0 +1,32 @@
+.input {
+  box-sizing: border-box;
+  height: var(--t95-textinput-height);
+  padding: var(--t95-textinput-padding);
+  border-radius: var(--t95-textinput-radius);
+  border-width: var(--t95-textinput-border-width);
+  border-style: var(--t95-textinput-border-style);
+  border-color: var(--t95-textinput-border-color);
+  background: var(--t95-textinput-background);
+  color: var(--t95-face-text);
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+  box-shadow: var(--t95-textinput-shadow);
+  line-height: 2;
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--t95-textinput-border-color-hover);
+  box-shadow: var(--t95-textinput-shadow-hover);
+}
+
+.input:focus-visible {
+  border-color: var(--t95-textinput-border-color-focus);
+  box-shadow: var(--t95-textinput-shadow-focus);
+}
+
+.input:disabled {
+  border-color: var(--t95-textinput-border-color-disabled);
+  background: var(--t95-textinput-background-disabled);
+  box-shadow: var(--t95-textinput-shadow-disabled);
+  color: var(--t95-textinput-color-disabled);
+}

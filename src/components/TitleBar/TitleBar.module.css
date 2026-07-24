@@ -1,0 +1,66 @@
+.titlebar {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--t95-titlebar-padding);
+  border-radius: var(--t95-titlebar-radius);
+  background: linear-gradient(
+    90deg,
+    var(--t95-titlebar-bg),
+    var(--t95-titlebar-bg-end)
+  );
+  color: var(--t95-titlebar-text);
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+  font-weight: var(--t95-titlebar-font-weight);
+}
+
+.inactive {
+  background: var(--t95-titlebar-bg-inactive);
+  color: var(--t95-titlebar-text-inactive);
+}
+
+.text {
+  overflow: hidden;
+  margin-right: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.close {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--t95-titlebar-close-width);
+  height: var(--t95-titlebar-close-height);
+  padding: 0;
+  border: var(--t95-titlebar-close-border);
+  border-radius: 0;
+  box-shadow: var(--t95-titlebar-close-shadow);
+  background: var(--t95-titlebar-close-background);
+  color: var(--t95-titlebar-close-color);
+  font-family: var(--t95-font);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--t95-titlebar-close-background-hover);
+}
+
+.close:active {
+  background: var(--t95-titlebar-close-background-active);
+}
+
+.close:focus-visible {
+  outline: var(--t95-focus-outline);
+}

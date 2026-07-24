@@ -56,6 +56,224 @@
 
   --t95-button-disabled-text-shadow: none;
   --t95-button-animation: t95-button-pulse 1s ease infinite alternate;
+
+  /* Checkbox/Radio recipe — sourced from khang-nd/7.css's
+     gui/_checkbox.scss + gui/_radiobutton.scss (see
+     docs/visual-reference.md), values from gui/_variables.scss's
+     --w7-el-* vars (same border/glow tones as the button — el-bd,
+     el-bd-h, el-bg-d — reused literally, not approximated). Checkbox's
+     checked glyph is the source's own technique: a Unicode heavy-check
+     character (`content: "\2714"`, i.e. "✓"), not an image — so
+     `--t95-checkbox-check-image` is unset (`none`) and
+     `--t95-checkbox-check-content` carries the glyph instead. Radio's
+     checked dot IS a CSS-drawn shape in the source (fill + border +
+     layered inset box-shadow), reproduced here with the exact same
+     values via dedicated `--t95-radio-dot-*` tokens instead of a single
+     flat color. Checkbox disables via explicit color/border/shadow swaps;
+     radio instead disables via `filter: grayscale(1) opacity(0.6)` on the
+     whole control — that's not an inconsistency introduced here, the
+     source genuinely uses two different mechanisms for the two
+     controls. */
+  --t95-checkbox-size: 14px;
+  --t95-checkbox-check-size: 14px;
+  --t95-checkbox-background: #f6f6f6;
+  --t95-checkbox-background-active: #f6f6f6;
+  --t95-checkbox-background-disabled: linear-gradient(
+    to bottom right,
+    #f0f0f0,
+    #fbfbfb
+  );
+  --t95-checkbox-background-hover: #e9f7fe;
+  --t95-checkbox-border: 1px solid #8e8f8f;
+  --t95-checkbox-border-hover: 1px solid #3c7fb1;
+  --t95-checkbox-border-disabled: 1px solid #b1b1b1;
+  --t95-checkbox-shadow:
+    inset 0 0 0 1px #f4f4f4, inset 1px 1px 0 1px #aeaeae,
+    inset -1px -1px 0 1px #dddddd, inset 3px 3px 6px #cccccc;
+  --t95-checkbox-shadow-hover:
+    inset 0 0 0 1px #def9fa, inset 1px 1px 0 1px #79c6f9,
+    inset -1px -1px 0 1px #c6e9fc, inset 3px 3px 6px #b1dffd;
+  --t95-checkbox-shadow-disabled: none;
+  --t95-checkbox-check-content: '\2714';
+  --t95-checkbox-check-color: #4a5f97;
+  --t95-checkbox-check-color-disabled: #bfbfbf;
+  --t95-checkbox-check-image: none;
+  --t95-checkbox-check-image-disabled: none;
+
+  --t95-radio-size: 14px;
+  --t95-radio-dot-size: 8px;
+  --t95-radio-background: #f6f6f6;
+  --t95-radio-background-active: #f6f6f6;
+  --t95-radio-background-disabled: #f6f6f6;
+  --t95-radio-background-hover: #f6f6f6;
+  --t95-radio-border: 1px solid #8e8f8f;
+  --t95-radio-border-hover: 1px solid #3c7fb1;
+  --t95-radio-border-disabled: 1px solid #8e8f8f;
+  --t95-radio-shadow:
+    inset 0 0 0 1.5px #f4f4f4, inset 1px 1px 0 1.5px #aeaeae,
+    inset -1px 0 0 1.5px #dddddd, inset 3px 3px 6px #cccccc;
+  --t95-radio-shadow-hover:
+    inset 0 0 0 1.5px #def9fa, inset 1px 1px 0 1.5px #79c6f9,
+    inset -1px -1px 0 1.5px #c6e9fc, inset 3px 3px 6px #b1dffd;
+  --t95-radio-shadow-disabled: var(--t95-radio-shadow);
+  --t95-radio-disabled-filter: grayscale(1) opacity(0.6);
+  --t95-radio-dot-background: #7cd3eb;
+  --t95-radio-dot-border: 1.5px solid #27506d;
+  --t95-radio-dot-shadow:
+    inset -1px -1px 0 0.5px #16638f, inset -1px -1px 0 1px #1985c0;
+  --t95-radio-dot-image: none;
+  --t95-radio-dot-image-disabled: none;
+
+  /* TextInput recipe — sourced from khang-nd/7.css's gui/_textbox.scss,
+     which uses a literal 4-side `border-color` (top/right/bottom/left all
+     different) at rest, on hover, and on focus — reproduced exactly via
+     `--t95-textinput-border-color` holding all 4 values, since CSS
+     `border-color` natively accepts a 4-value shorthand. Disabled state
+     is single-color as sourced (not simplified — the source itself only
+     gives one disabled value). Radius 2px is exact and distinct from the
+     shared --t95-radius (3px, from the button/panel `--w7-el-bdr`) — the
+     textbox rule sets `border-radius: 2px` directly, not the shared var. */
+  --t95-textinput-height: 23px;
+  --t95-textinput-radius: 2px;
+  --t95-textinput-padding: 3px 4px 5px;
+  --t95-textinput-background: #ffffff;
+  --t95-textinput-background-disabled: var(--t95-face);
+  --t95-textinput-border-width: 1px;
+  --t95-textinput-border-style: solid;
+  --t95-textinput-border-color: #abadb3 #dbdfe6 #e3e9ef #e2e3ea;
+  --t95-textinput-border-color-hover: #5794bf #b7d5ea #c7e2f1 #c5daed;
+  --t95-textinput-border-color-focus: #3d7bad #a4c9e3 #b7d9ed #b5cfe7;
+  --t95-textinput-border-color-disabled: #afafaf;
+  --t95-textinput-shadow: none;
+  --t95-textinput-shadow-hover: none;
+  --t95-textinput-shadow-focus: none;
+  --t95-textinput-shadow-disabled: inset 0 0 0 1px #ffffff;
+  --t95-textinput-color-disabled: var(--t95-disabled-text);
+
+  /* Panel (GroupBox) recipe — sourced from khang-nd/7.css's
+     gui/_groupbox.scss: thin cool-gray border, radius from the shared
+     --w7-el-bdr (matches --t95-radius, no separate token needed here),
+     subtle white inset highlight, no deep bevel (Aero dropped the 9x
+     groove). No background is set in the source (transparent/inherits
+     the page), and no distinct `sunken` variant exists — GroupBox has
+     exactly one look, so `sunken` reuses the same recipe as `flat`
+     rather than inventing a shadow. */
+  --t95-panel-radius: var(--t95-radius);
+  --t95-panel-background-raised: transparent;
+  --t95-panel-background-sunken: transparent;
+  --t95-panel-background-flat: transparent;
+  --t95-panel-border-raised: 1px solid #cdd7db;
+  --t95-panel-border-sunken: 1px solid #cdd7db;
+  --t95-panel-border-flat: 1px solid #cdd7db;
+  --t95-panel-border-image-raised: none;
+  --t95-panel-border-image-sunken: none;
+  --t95-panel-border-image-flat: none;
+  --t95-panel-shadow-raised: inset 0 0 0 1px #ffffff;
+  --t95-panel-shadow-sunken: inset 0 0 0 1px #ffffff;
+
+  /* TitleBar/Window (Aero) — sourced from khang-nd/7.css's `_window.scss`
+     (see docs/visual-reference.md). Real recipe is a radial "glass"
+     gradient + `backdrop-filter: blur()` + per-button glow animations —
+     full glass is still out of scope (see this file's own header TODO),
+     so this uses the same "flat-gradient stand-in" treatment already
+     applied to win7 Button above: a `linear-gradient` using the sourced
+     `--w7-w-bg`/`--w7-wct-*` colors, no blur, no radial glass texture.
+     Window body reuses the source's real border+background (it isn't
+     part of the "glass" effect, just a plain bordered panel). */
+  --t95-window-radius: 6px;
+  --t95-window-padding: 0;
+  --t95-window-background: linear-gradient(
+    to right,
+    #ffffff66,
+    #0000001a,
+    #ffffff33
+  );
+  --t95-window-border: 1px solid #000000b3;
+  --t95-window-shadow: inset 0 0 0 1px #fffd;
+  --t95-window-body-background: var(--t95-face);
+  --t95-window-body-border: 1px solid #000000b3;
+  --t95-window-body-shadow: 0 0 0 1px #fff9;
+
+  --t95-titlebar-radius: 6px 6px 0 0;
+  --t95-titlebar-padding: 6px 6px 0 6px;
+  --t95-titlebar-font-weight: normal;
+  --t95-titlebar-close-width: 48px;
+  --t95-titlebar-close-height: 19px;
+  --t95-titlebar-close-background: linear-gradient(
+    #ffffff80,
+    #ffffff4d 45%,
+    #0000001a 50%,
+    #0000001a 75%,
+    #ffffff80
+  );
+  --t95-titlebar-close-background-hover:
+    radial-gradient(circle at 50% 170%, #f4e676 10% 20%, #0000 60%),
+    linear-gradient(#fb9d8b, #ee6d56 25% 50%, #d42809 50%);
+  --t95-titlebar-close-background-active: linear-gradient(
+    #d1a894,
+    #b67562 25% 50%,
+    #7d0d01 50%
+  );
+  --t95-titlebar-close-border: 1px solid #0000004d;
+  --t95-titlebar-close-shadow: inset 0 0 0 1px #fffa;
+  --t95-titlebar-close-color: #000000;
+
+  /* ScrollView (Aero) — sourced from khang-nd/7.css's `_scrollbar.scss`:
+     a real gradient track and a bordered/rounded thumb using the same
+     --w7-el-bd/-bg tokens as Button, reproduced faithfully. The sourced
+     base64 PNG "grip dot" texture on the thumb is omitted — plain thumb,
+     like every other skin (see docs/visual-reference.md). */
+  --t95-scrollbar-size: 16px;
+  --t95-scrollbar-track-background: linear-gradient(
+    to right,
+    #e5e5e5,
+    #f0f0f0 20%
+  );
+  --t95-scrollbar-thumb-background: #f2f2f2;
+  --t95-scrollbar-thumb-border: 1px solid #8e8f8f;
+  --t95-scrollbar-thumb-shadow: inset 0 0 0 1px #fffc;
+  --t95-scrollbar-thumb-radius: 3px;
+  --t95-scrollbar-button-background: #f2f2f2;
+  /* khang-nd/7.css's own arrow assets weren't fetched (see
+     docs/visual-reference.md) — reuses the win95/98-sourced beveled
+     arrow SVGs below rather than an un-sourced guess. */
+  --t95-scrollbar-button-up: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-down: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-left: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-right: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z' fill='black'/%3E%3C/svg%3E");
+
+  /* MenuList (Aero) — the one skin with a real sourced menu recipe
+     (khang-nd/7.css's `_menu.scss`, `ul[role=menubar]`/`[role=menuitem]`):
+     flat #3399ff hover, a genuinely distinct blue from the button/element
+     family (#3c7fb1/#8e8f8f), not a typo — see docs/visual-reference.md. */
+  --t95-menu-background: linear-gradient(
+    #ffffff 20%,
+    #f1f4fa 25%,
+    #f1f4fa 43%,
+    #d4dbee 48%,
+    #e6eaf6
+  );
+  --t95-menu-border: 1px solid #8e8f8f;
+  --t95-menu-item-padding: 6px 10px;
+  --t95-menu-item-color: #000000;
+  --t95-menu-item-background-hover: #3399ff;
+  --t95-menu-item-color-hover: #ffffff;
+  --t95-menu-item-color-disabled: #838383;
+
+  /* Tabs (Aero) — sourced from khang-nd/7.css's `_tabs.scss`; the
+     selected tab additionally cancels the button-pulse focus animation
+     (`animation: none` in source) — Type95 mirrors this by never
+     carrying --t95-button-animation into these dedicated --t95-tabs-*
+     tokens at all. */
+  --t95-tabs-item-background: transparent;
+  --t95-tabs-item-background-selected: #ffffff;
+  --t95-tabs-item-border: none;
+  --t95-tabs-item-radius: 0;
+  --t95-tabs-item-padding: 2px 6px;
+  --t95-tabs-item-color: #222222;
+  --t95-tabs-panel-background: #ffffff;
+  --t95-tabs-panel-border: 1px solid #8e8f8f;
+  --t95-tabs-panel-shadow: none;
 }
 
 @keyframes t95-button-pulse {

@@ -1,0 +1,19 @@
+.window {
+  box-sizing: border-box;
+  padding: var(--t95-window-padding);
+  border: var(--t95-window-border);
+  border-radius: var(--t95-window-radius);
+  box-shadow: var(--t95-window-shadow);
+  background: var(--t95-window-background);
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+}
+
+.body {
+  box-sizing: border-box;
+  margin: 8px;
+  border: var(--t95-window-body-border);
+  box-shadow: var(--t95-window-body-shadow);
+  background: var(--t95-window-body-background);
+  color: var(--t95-face-text);
+}

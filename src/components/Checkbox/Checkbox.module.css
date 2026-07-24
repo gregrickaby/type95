@@ -1,0 +1,86 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+  color: var(--t95-face-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.wrapper:has(.input:disabled) {
+  cursor: default;
+  color: var(--t95-disabled-text);
+}
+
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.box {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--t95-checkbox-size);
+  height: var(--t95-checkbox-size);
+  background: var(--t95-checkbox-background);
+  border: var(--t95-checkbox-border);
+  box-shadow: var(--t95-checkbox-shadow);
+}
+
+.input:hover:not(:disabled) ~ .box {
+  background: var(--t95-checkbox-background-hover);
+  border: var(--t95-checkbox-border-hover);
+  box-shadow: var(--t95-checkbox-shadow-hover);
+}
+
+.input:active:not(:disabled) ~ .box {
+  background: var(--t95-checkbox-background-active);
+}
+
+.input:focus-visible ~ .box {
+  outline: var(--t95-focus-outline);
+  outline-offset: 1px;
+}
+
+.input:disabled ~ .box {
+  background: var(--t95-checkbox-background-disabled);
+  border: var(--t95-checkbox-border-disabled);
+  box-shadow: var(--t95-checkbox-shadow-disabled);
+}
+
+.input:checked ~ .box::after {
+  content: var(--t95-checkbox-check-content);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--t95-checkbox-check-color);
+  background-image: var(--t95-checkbox-check-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--t95-checkbox-check-size) var(--t95-checkbox-check-size);
+}
+
+.input:checked:disabled ~ .box::after {
+  color: var(--t95-checkbox-check-color-disabled);
+  background-image: var(--t95-checkbox-check-image-disabled);
+}
+
+.label {
+  line-height: 1.3;
+}

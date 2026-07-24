@@ -6,8 +6,9 @@ Storybook: https://gregrickaby.github.io/type95/
 
 ## Status
 
-Early scaffold. One reference component (`Button`) proves the pattern.
-Everything else is roadmap.
+Early scaffold. Eleven components built (`Button`, `Checkbox`, `Divider`,
+`Panel`, `Radio`, `TextInput`, `TitleBar`, `Window`, `ScrollView`,
+`MenuList`, `Tabs`); the rest is roadmap.
 
 ## Skins
 
@@ -56,10 +57,10 @@ unreliable, so this package compiles with `bundle: false` and mirrors
 
 ## Component roadmap
 
-Built: `Button`
+Built: `Button`, `Checkbox`, `Divider`, `Panel`, `Radio`, `TextInput`,
+`TitleBar`, `Window`, `ScrollView`, `MenuList`, `Tabs`
 
-Backlog (not started): `Window`, `TitleBar`, `TextInput`, `Panel`/`Cutout`,
-`ScrollView`, `MenuList`, `Tabs`, `Checkbox`, `Radio`, `Divider`
+Backlog (not started): none yet — see GitHub issues for what's next.
 
 ## AI / agent-ready
 

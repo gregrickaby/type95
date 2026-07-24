@@ -1,0 +1,56 @@
+.scrollview {
+  box-sizing: border-box;
+  overflow: auto;
+  border-radius: var(--t95-panel-radius);
+  background: var(--t95-panel-background-sunken);
+  border: var(--t95-panel-border-sunken);
+  border-image: var(--t95-panel-border-image-sunken);
+  box-shadow: var(--t95-panel-shadow-sunken);
+  color: var(--t95-face-text);
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+}
+
+.scrollview::-webkit-scrollbar {
+  width: var(--t95-scrollbar-size);
+  height: var(--t95-scrollbar-size);
+}
+
+.scrollview::-webkit-scrollbar-corner {
+  background: var(--t95-scrollbar-button-background);
+}
+
+.scrollview::-webkit-scrollbar-track {
+  background: var(--t95-scrollbar-track-background);
+}
+
+.scrollview::-webkit-scrollbar-thumb {
+  background: var(--t95-scrollbar-thumb-background);
+  border: var(--t95-scrollbar-thumb-border);
+  border-radius: var(--t95-scrollbar-thumb-radius);
+  box-shadow: var(--t95-scrollbar-thumb-shadow);
+}
+
+.scrollview::-webkit-scrollbar-button:vertical:start {
+  height: var(--t95-scrollbar-size);
+  background: var(--t95-scrollbar-button-background)
+    var(--t95-scrollbar-button-up) no-repeat center;
+}
+
+.scrollview::-webkit-scrollbar-button:vertical:end {
+  height: var(--t95-scrollbar-size);
+  background: var(--t95-scrollbar-button-background)
+    var(--t95-scrollbar-button-down) no-repeat center;
+}
+
+.scrollview::-webkit-scrollbar-button:horizontal:start {
+  width: var(--t95-scrollbar-size);
+  background: var(--t95-scrollbar-button-background)
+    var(--t95-scrollbar-button-left) no-repeat center;
+}
+
+.scrollview::-webkit-scrollbar-button:horizontal:end {
+  width: var(--t95-scrollbar-size);
+  background: var(--t95-scrollbar-button-background)
+    var(--t95-scrollbar-button-right) no-repeat center;
+}

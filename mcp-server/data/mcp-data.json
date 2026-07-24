@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T03:01:13.993Z",
+  "generatedAt": "2026-07-24T15:08:29.957Z",
   "package": "type95",
   "components": [
     {
@@ -10,6 +10,96 @@
       "defaultElement": "button",
       "clientComponent": false,
       "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-button--default"
+    },
+    {
+      "name": "Checkbox",
+      "description": "Sunken-box checkbox with a checkmark glyph, wrapped in a `<label>` so\nclicking the box or the label text both toggle the native input — no\n`id`/`htmlFor` wiring required. The native `<input type=\"checkbox\">` is\nvisually hidden (not `display: none`) so it stays in the accessibility\ntree and keyboard/focus behavior comes for free; the visible box is a\n`aria-hidden` sibling `<span>` styled from its state via CSS sibling\nselectors (`:checked ~`, `:disabled ~`, `:focus-visible ~`).",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-checkbox--default"
+    },
+    {
+      "name": "Divider",
+      "description": "Horizontal groove line for separating sections of a dialog or menu.\nRenders a native `<hr>` (implicit `role=\"separator\"`), styled as the\nclassic two-tone engraved line — a dark line on top, a light line\ndirectly under it — using the same `--t95-border-dark` /\n`--t95-border-lightest` tokens every bevel in this library reads from,\nrather than a dedicated `--t95-divider-*` token set.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-divider--default"
+    },
+    {
+      "name": "MenuList",
+      "description": "A vertical list of selectable items (a dropdown menu, a Start-menu-style\nlist, a right-click context menu) — each item is a real `<button>` so\nkeyboard/focus/disabled behavior comes for free, wrapped in an `<li\nrole=\"none\">` per the ARIA menu pattern. Hover/focus inverts to\n`--t95-menu-item-background-hover`/`-color-hover`, which win95/98/XP map\nto the same system highlight color already used for text selection (no\ndedicated menu recipe exists in those source libraries — this is the\nreal OS convention, not an approximation); win7/10 use their own sourced\naccent blue instead. Styling comes entirely from `--t95-menu-*` custom\nproperties (see src/tokens), so the same markup renders correctly under\nany `data-skin` ancestor without a JS branch on skin.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-menulist--default"
+    },
+    {
+      "name": "Panel",
+      "description": "Generic bordered container (GroupBox/\"Cutout\" style) with no opinion on\ncontent — a building block for status bars, preview panes, or a\n`Window` body. Styling comes entirely from `--t95-panel-*` custom\nproperties, so the same markup renders correctly under any `data-skin`\nancestor without a JS branch on skin.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-panel--default"
+    },
+    {
+      "name": "Radio",
+      "description": "Sunken-circle radio button with a dot glyph, wrapped in a `<label>` so\nclicking the circle or the label text both select the native input — no\n`id`/`htmlFor` wiring required. Group multiple `Radio`s the same way\nyou'd group native radio inputs: give each the same `name`. The native\n`<input type=\"radio\">` is visually hidden (not `display: none`) so it\nstays in the accessibility tree and keyboard/focus behavior comes for\nfree; the visible circle is an `aria-hidden` sibling `<span>` styled\nfrom its state via CSS sibling selectors (`:checked ~`, `:disabled ~`,\n`:focus-visible ~`).",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-radio--default"
+    },
+    {
+      "name": "ScrollView",
+      "description": "A sunken, scrollable content box — the classic \"cutout\" preview pane\nwith a themed scrollbar, e.g. a file listing inside a `Window` body.\nReuses the same `--t95-panel-*` sunken tokens as `Panel`'s `sunken`\nvariant (98.css's own `.sunken-panel` is literally \"Panel sunken +\n`overflow: auto`\") plus dedicated `--t95-scrollbar-*` tokens for the\n`::-webkit-scrollbar` pseudo-elements. That scrollbar styling only\napplies in Chromium/Safari — Firefox has no equivalent API and falls\nback to its native scrollbar, a limitation of the underlying platform\nfeature, not this component.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-scrollview--default"
+    },
+    {
+      "name": "Tabs",
+      "description": "A tab strip and its associated panel — sourced from the identical\n`menu[role=tablist]` / `[role=tabpanel]` markup all three pixel-measured\nWindows-era CSS libraries share (see docs/visual-reference.md): the\nselected tab's negative margin makes it visually overlap the panel\nbelow, hiding the border between them. Styling comes entirely from\n`--t95-tabs-*` custom properties (see src/tokens), so the same markup\nrenders correctly under any `data-skin` ancestor without a JS branch on\nskin. Uncontrolled by default (tracks its own active tab); pass\n`activeKey`/`onChange` to control it. Ships `'use client'` since it\nholds interactive selection state.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": true,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-tabs--default"
+    },
+    {
+      "name": "TextInput",
+      "description": "Sunken-bevel single-line text field. Renders a native `<input>` (no\n`type` prop — always text entry; use a plain `<input type=\"checkbox\">`\nor the `Checkbox`/`Radio` components for those variants). Styling comes\nentirely from `--t95-textinput-*` custom properties, so the same markup\nrenders correctly under any `data-skin` ancestor without a JS branch on\nskin.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-textinput--default"
+    },
+    {
+      "name": "TitleBar",
+      "description": "The title strip at the top of a `Window` — also usable standalone.\nStyling comes entirely from `--t95-titlebar-*` custom properties (see\nsrc/tokens), so the same markup renders correctly under any `data-skin`\nancestor without a JS branch on skin. `children` renders as the title\ntext; `onClose` is the only built-in control (a single close button)\nsince a full minimize/maximize/restore icon set would need per-skin\nassets beyond what this library ships — pass additional buttons via\n`controls` for anything else.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-titlebar--default"
+    },
+    {
+      "name": "Window",
+      "description": "A framed window: a `TitleBar` on top and a body area below. Styling\ncomes entirely from `--t95-window-*` / `--t95-titlebar-*` custom\nproperties (see src/tokens), so the same markup renders correctly\nunder any `data-skin` ancestor without a JS branch on skin. `children`\nrenders inside the body — pass a `ScrollView` as the body's own child\nfor a scrollable window content area.",
+      "importPath": "type95",
+      "polymorphic": false,
+      "defaultElement": null,
+      "clientComponent": false,
+      "storyUrl": "https://gregrickaby.github.io/type95/?path=/story/components-window--default"
     }
   ]
 }

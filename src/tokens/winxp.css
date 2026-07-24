@@ -65,4 +65,190 @@
     inset 1px -1px #89ade4, inset 2px -2px #89ade4;
 
   --t95-button-disabled-text-shadow: none;
+
+  /* Checkbox/Radio recipe — sourced from botoxparty/XP.css's
+     themes/XP/_forms.scss, which overrides gui/_variables.scss's
+     `--radio-width`/`--checkmark-width`/`--radio-dot-width` (see
+     docs/visual-reference.md). Luna controls are border+gradient like the
+     button, not a bevel. Checked glyphs are the exact sourced
+     `icon/checkmark.svg` (11x11, green pixel art) and `icon/radio-dot.svg`
+     (5x5, green pixel-shaded dot) inlined as data URIs — Luna's glyphs
+     are colorful raster-style icons, not a flat color, so a CSS-drawn
+     shape can't reproduce them. */
+  --t95-checkbox-size: 13px;
+  --t95-checkbox-check-size: 11px;
+  --t95-checkbox-background: linear-gradient(135deg, #dcdcd7 0%, #ffffff 100%);
+  --t95-checkbox-background-active: linear-gradient(
+    135deg,
+    #b0b0a7 0%,
+    #e3e1d2 100%
+  );
+  --t95-checkbox-background-disabled: #ffffff;
+  --t95-checkbox-background-hover: var(--t95-checkbox-background);
+  --t95-checkbox-border: 1px solid #1d5281;
+  --t95-checkbox-border-hover: 1px solid #1d5281;
+  --t95-checkbox-border-disabled: 1px solid #cac8bb;
+  --t95-checkbox-shadow: none;
+  --t95-checkbox-shadow-hover: inset -2px -2px #f8b636, inset 2px 2px #fedf9c;
+  --t95-checkbox-shadow-disabled: none;
+  --t95-checkbox-check-content: '';
+  --t95-checkbox-check-color: transparent;
+  --t95-checkbox-check-color-disabled: transparent;
+  --t95-checkbox-check-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 11 11' shape-rendering='crispEdges'%3E%3Cpath stroke='%2322a122' d='M8 2h1M7 3h2M2 4h1M6 4h3M2 5h2M5 5h3M2 6h5M3 7h3M4 8h1' /%3E%3C/svg%3E");
+  --t95-checkbox-check-image-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 11 11' shape-rendering='crispEdges'%3E%3Cpath stroke='%23cac8bb' d='M8 2h1M7 3h2M2 4h1M6 4h3M2 5h2M5 5h3M2 6h5M3 7h3M4 8h1' /%3E%3C/svg%3E");
+
+  --t95-radio-size: 13px;
+  --t95-radio-dot-size: 5px;
+  --t95-radio-background: linear-gradient(135deg, #dcdcd7 0%, #ffffff 100%);
+  --t95-radio-background-active: linear-gradient(
+    135deg,
+    #b0b0a7 0%,
+    #e3e1d2 100%
+  );
+  --t95-radio-background-disabled: #ffffff;
+  --t95-radio-background-hover: var(--t95-radio-background);
+  --t95-radio-border: 1px solid #1d5281;
+  --t95-radio-border-hover: 1px solid #1d5281;
+  --t95-radio-border-disabled: 1px solid #cac8bb;
+  --t95-radio-shadow: none;
+  --t95-radio-shadow-hover: inset -2px -2px #f8b636, inset 2px 2px #fedf9c;
+  --t95-radio-shadow-disabled: none;
+  --t95-radio-disabled-filter: none;
+  --t95-radio-dot-background: none;
+  --t95-radio-dot-border: none;
+  --t95-radio-dot-shadow: none;
+  --t95-radio-dot-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 5 5' shape-rendering='crispEdges'%3E%3Cpath stroke='%23a9dca6' d='M1 0h1M0 1h1' /%3E%3Cpath stroke='%234dbf4a' d='M2 0h1M0 2h1' /%3E%3Cpath stroke='%23a0d29e' d='M3 0h1M0 3h1' /%3E%3Cpath stroke='%2355d551' d='M1 1h1' /%3E%3Cpath stroke='%2343c33f' d='M2 1h1' /%3E%3Cpath stroke='%2329a826' d='M3 1h1' /%3E%3Cpath stroke='%239acc98' d='M4 1h1M1 4h1' /%3E%3Cpath stroke='%2342c33f' d='M1 2h1' /%3E%3Cpath stroke='%2338b935' d='M2 2h1' /%3E%3Cpath stroke='%2321a121' d='M3 2h1' /%3E%3Cpath stroke='%23269623' d='M4 2h1' /%3E%3Cpath stroke='%232aa827' d='M1 3h1' /%3E%3Cpath stroke='%2322a220' d='M2 3h1' /%3E%3Cpath stroke='%23139210' d='M3 3h1' /%3E%3Cpath stroke='%2398c897' d='M4 3h1' /%3E%3Cpath stroke='%23249624' d='M2 4h1' /%3E%3Cpath stroke='%2398c997' d='M3 4h1' /%3E%3C/svg%3E");
+  --t95-radio-dot-image-disabled: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -0.5 5 5' shape-rendering='crispEdges'%3E%3Cpath stroke='%23e8e6da' d='M1 0h1M0 1h1' /%3E%3Cpath stroke='%23d2ceb5' d='M2 0h1M0 2h1' /%3E%3Cpath stroke='%23e5e3d4' d='M3 0h1M0 3h1' /%3E%3Cpath stroke='%23d7d3bd' d='M1 1h1' /%3E%3Cpath stroke='%23d0ccb2' d='M2 1h1M1 2h1' /%3E%3Cpath stroke='%23c7c2a2' d='M3 1h1M1 3h1' /%3E%3Cpath stroke='%23e2dfd0' d='M4 1h1M1 4h1' /%3E%3Cpath stroke='%23cdc8ac' d='M2 2h1' /%3E%3Cpath stroke='%23c5bf9f' d='M3 2h1M2 3h1' /%3E%3Cpath stroke='%23c3bd9c' d='M4 2h1' /%3E%3Cpath stroke='%23bfb995' d='M3 3h1' /%3E%3Cpath stroke='%23e2dfcf' d='M4 3h1M3 4h1' /%3E%3Cpath stroke='%23c4be9d' d='M2 4h1' /%3E%3C/svg%3E");
+
+  /* TextInput recipe — sourced from botoxparty/XP.css's gui/_forms.scss
+     (the Luna theme doesn't override input[type="text"], so the Classic
+     base recipe applies): height 21px, but themes/XP/_forms.scss's
+     `input[type="text"],select{height:23px}` rule loads after the base
+     file and wins the cascade, so the effective height is 23px. Border
+     `#7f9db9`, padding `3px 4px`, and `:focus{outline:none}` (no visible
+     focus change, same as background/border) are all exactly as sourced
+     — no separate disabled recipe exists for input[type="text"] in
+     either file, so `--t95-textinput-background-disabled` below is
+     inferred from 98.css's identical disabled-background convention
+     (surface-color fill), not from an XP-specific source. */
+  --t95-textinput-height: 23px;
+  --t95-textinput-radius: 0px;
+  --t95-textinput-padding: 3px 4px;
+  --t95-textinput-background: #ffffff;
+  --t95-textinput-background-disabled: var(--t95-face);
+  --t95-textinput-border-width: 1px;
+  --t95-textinput-border-style: solid;
+  --t95-textinput-border-color: #7f9db9;
+  --t95-textinput-border-color-hover: #7f9db9;
+  --t95-textinput-border-color-focus: #7f9db9;
+  --t95-textinput-border-color-disabled: #7f9db9;
+  --t95-textinput-shadow: none;
+  --t95-textinput-shadow-hover: none;
+  --t95-textinput-shadow-focus: none;
+  --t95-textinput-shadow-disabled: none;
+  --t95-textinput-color-disabled: var(--t95-disabled-text);
+
+  /* Panel (GroupBox) recipe — sourced from botoxparty/XP.css's
+     themes/XP/_groupbox.scss: flat white box, thin warm-gray border,
+     border-radius 4px (distinct from the button's own 3px — both are
+     directly sourced, just from different rules, hence the dedicated
+     --t95-panel-radius instead of reusing --t95-radius). No `sunken` or
+     `raised` variant exists in the source — GroupBox has exactly one
+     look — so both reuse the same flat recipe rather than inventing a
+     distinct shadow. */
+  --t95-panel-radius: 4px;
+  --t95-panel-background-raised: #ffffff;
+  --t95-panel-background-sunken: #ffffff;
+  --t95-panel-background-flat: #ffffff;
+  --t95-panel-border-raised: 1px solid #d0d0bf;
+  --t95-panel-border-sunken: 1px solid #d0d0bf;
+  --t95-panel-border-flat: 1px solid #d0d0bf;
+  --t95-panel-border-image-raised: none;
+  --t95-panel-border-image-sunken: none;
+  --t95-panel-border-image-flat: none;
+  --t95-panel-shadow-raised: none;
+  --t95-panel-shadow-sunken: none;
+
+  /* TitleBar/Window (Luna) — sourced from botoxparty/XP.css's
+     themes/XP/_window.scss (see docs/visual-reference.md). Real recipe is
+     an 8px-rounded top, 6-shadow blue bevel, and a 9-stop vertical title
+     gradient — the gradient is approximated to the existing 2-stop
+     --t95-titlebar-bg/-bg-end pair (already set on this skin) rather than
+     a literal 9-stop copy, same "close enough, 2 stops" simplification
+     the rest of this skin already uses. Title-bar-control buttons in Luna
+     are genuinely flat-colored (no bevel), not a bevel variant of Button —
+     hover/active below are inferred (not in the fetched source excerpt,
+     which only showed default + a PNG icon swap Type95 doesn't ship). */
+  --t95-window-radius: 8px;
+  --t95-window-padding: 0 0 3px 0;
+  --t95-window-background: var(--t95-face);
+  --t95-window-border: none;
+  --t95-window-shadow:
+    inset -1px -1px #00138c, inset 1px 1px #0831d9, inset -2px -2px #001ea0,
+    inset 2px 2px #166aee, inset -3px -3px #003bda, inset 3px 3px #0855dd;
+  --t95-window-body-background: transparent;
+  --t95-window-body-border: none;
+  --t95-window-body-shadow: none;
+
+  --t95-titlebar-radius: 8px 7px 0 0;
+  --t95-titlebar-padding: 3px 5px 3px 3px;
+  --t95-titlebar-font-weight: bold;
+  --t95-titlebar-close-width: 21px;
+  --t95-titlebar-close-height: 21px;
+  --t95-titlebar-close-background: #0050ee;
+  --t95-titlebar-close-background-hover: #1a63f2;
+  --t95-titlebar-close-background-active: #003fcc;
+  --t95-titlebar-close-border: none;
+  --t95-titlebar-close-shadow: none;
+  --t95-titlebar-close-color: #ffffff;
+
+  /* ScrollView (Luna) — sourced from botoxparty/XP.css's
+     themes/XP/_global.scss: rounded (2px) light-blue-tinted thumb over a
+     white border. Track/thumb "grip" SVGs from the source aren't fetched
+     (decorative micro-detail, see docs/visual-reference.md) — track below
+     is a flat tint of --t95-face instead of the exact Luna track SVG.
+     Arrow-button glyphs reuse the win95/98 sourced SVGs (XP.css's own
+     icon/ directory ships byte-identical button-up/down/left/right.svg
+     files, confirmed by directory listing — not a Type95 shortcut). */
+  --t95-scrollbar-size: 17px;
+  --t95-scrollbar-track-background: #ece9d8;
+  --t95-scrollbar-thumb-background: #c8d6fb;
+  --t95-scrollbar-thumb-border: 1px solid #ffffff;
+  --t95-scrollbar-thumb-shadow: inset -3px 0 #bad1fc, inset 1px 1px #b7caf5;
+  --t95-scrollbar-thumb-radius: 2px;
+  --t95-scrollbar-button-background: #ece9d8;
+  --t95-scrollbar-button-up: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8 6H7V7H6V8H5V9H4V10H11V9H10V8H9V7H8V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-down: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M11 6H4V7H5V8H6V9H7V10H8V9H9V8H10V7H11V6Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-left: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 4H8V5H7V6H6V7H5V8H6V9H7V10H8V11H9V4Z' fill='black'/%3E%3C/svg%3E");
+  --t95-scrollbar-button-right: url("data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 0H0V1V16H1V1H15V0Z' fill='%23DFDFDF'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2 1H1V15H2V2H14V1H2Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 17H15H0V16H15V0H16V17Z' fill='black'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M15 1H14V15H1V16H14H15V1Z' fill='%23808080'/%3E%3Crect x='2' y='2' width='12' height='13' fill='%23C0C0C0'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M7 4H6V11H7V10H8V9H9V8H10V7H9V6H8V5H7V4Z' fill='black'/%3E%3C/svg%3E");
+
+  /* MenuList (Luna) — no dedicated menu-bar source exists (see
+     docs/visual-reference.md); reuses this skin's --t95-highlight-bg
+     (#316ac5) the same way win95/98 do. */
+  --t95-menu-background: var(--t95-face);
+  --t95-menu-border: 1px solid #716f64;
+  --t95-menu-item-padding: 4px 10px;
+  --t95-menu-item-color: var(--t95-face-text);
+  --t95-menu-item-background-hover: var(--t95-highlight-bg);
+  --t95-menu-item-color-hover: var(--t95-highlight-text);
+  --t95-menu-item-color-disabled: var(--t95-disabled-text);
+
+  /* Tabs (Luna) — sourced from botoxparty/XP.css's themes/XP/_tabs.scss:
+     distinctive #e68b2c top-border + inset #ffc73c glow on hover/selected
+     that 98/7 don't have (sourced, not invented). */
+  --t95-tabs-item-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #fafaf9 26%,
+    #f0f0ea 95%,
+    #ece9d8 100%
+  );
+  --t95-tabs-item-background-selected: #fcfcfe;
+  --t95-tabs-item-border: 1px solid #91a7b4;
+  --t95-tabs-item-radius: 3px 3px 0 0;
+  --t95-tabs-item-padding: 0 12px 3px;
+  --t95-tabs-item-color: #000000;
+  --t95-tabs-panel-background: #fcfcfe;
+  --t95-tabs-panel-border: 1px solid #919b9c;
+  --t95-tabs-panel-shadow: inset 1px 1px #fcfcfe, inset -1px -1px #fcfcfe;
 }

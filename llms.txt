@@ -38,10 +38,20 @@ Switch skins live (no re-render) with `setSkin('winxp')` from `type95`.
 ## Components
 
 - **Button** — Classic raised 3D bevel button. Styling comes entirely from `--t95-*` (https://gregrickaby.github.io/type95/?path=/story/components-button--default)
+- **Checkbox** — Sunken-box checkbox with a checkmark glyph, wrapped in a `<label>` so (https://gregrickaby.github.io/type95/?path=/story/components-checkbox--default)
+- **Divider** — Horizontal groove line for separating sections of a dialog or menu. (https://gregrickaby.github.io/type95/?path=/story/components-divider--default)
+- **MenuList** — A vertical list of selectable items (a dropdown menu, a Start-menu-style (https://gregrickaby.github.io/type95/?path=/story/components-menulist--default)
+- **Panel** — Generic bordered container (GroupBox/"Cutout" style) with no opinion on (https://gregrickaby.github.io/type95/?path=/story/components-panel--default)
+- **Radio** — Sunken-circle radio button with a dot glyph, wrapped in a `<label>` so (https://gregrickaby.github.io/type95/?path=/story/components-radio--default)
+- **ScrollView** — A sunken, scrollable content box — the classic "cutout" preview pane (https://gregrickaby.github.io/type95/?path=/story/components-scrollview--default)
+- **Tabs** — A tab strip and its associated panel — sourced from the identical (https://gregrickaby.github.io/type95/?path=/story/components-tabs--default)
+- **TextInput** — Sunken-bevel single-line text field. Renders a native `<input>` (no (https://gregrickaby.github.io/type95/?path=/story/components-textinput--default)
+- **TitleBar** — The title strip at the top of a `Window` — also usable standalone. (https://gregrickaby.github.io/type95/?path=/story/components-titlebar--default)
+- **Window** — A framed window: a `TitleBar` on top and a body area below. Styling (https://gregrickaby.github.io/type95/?path=/story/components-window--default)
 
 ## Tokens
 
-31 `--t95-*` custom properties drive every component's
+140 `--t95-*` custom properties drive every component's
 styling (see `llms-full.txt` or `src/tokens/base.css` for the full list
 with values). Never hardcode a color/border/font in a consuming
 component — read a token instead so it keeps working across skins.

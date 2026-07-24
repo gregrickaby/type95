@@ -1,0 +1,59 @@
+.wrapper {
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+}
+
+.tablist {
+  position: relative;
+  display: flex;
+  margin: 0 0 -2px 0;
+  padding: 0 0 0 3px;
+  list-style: none;
+}
+
+.tabItem {
+  position: relative;
+  z-index: 1;
+}
+
+.tabItem.selected {
+  z-index: 8;
+  margin-top: -2px;
+}
+
+.tabButton {
+  display: block;
+  box-sizing: border-box;
+  padding: var(--t95-tabs-item-padding);
+  border: var(--t95-tabs-item-border);
+  border-radius: var(--t95-tabs-item-radius);
+  background: var(--t95-tabs-item-background);
+  color: var(--t95-tabs-item-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.selected .tabButton {
+  background: var(--t95-tabs-item-background-selected);
+}
+
+.tabButton:disabled {
+  color: var(--t95-disabled-text);
+  cursor: default;
+}
+
+.tabButton:focus-visible {
+  outline: var(--t95-focus-outline);
+  outline-offset: -3px;
+}
+
+.panel {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 12px;
+  background: var(--t95-tabs-panel-background);
+  border: var(--t95-tabs-panel-border);
+  box-shadow: var(--t95-tabs-panel-shadow);
+  color: var(--t95-face-text);
+}
