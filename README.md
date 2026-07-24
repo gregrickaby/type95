@@ -5,6 +5,8 @@ CSS-in-JS runtime. Inspired by [React95](https://github.com/react95-io/React95)
 but built from scratch, not forked: React 19 / RSC-safe, token-driven skins
 instead of parallel component forks per OS era.
 
+Storybook: https://gregrickaby.github.io/type95/
+
 ## Status
 
 Early scaffold. One reference component (`Button`) proves the pattern.
