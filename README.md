@@ -1,9 +1,6 @@
 # Type95
 
-A retro OS-skinned React component library. TypeScript, CSS Modules, no
-CSS-in-JS runtime. Inspired by [React95](https://github.com/react95-io/React95)
-but built from scratch, not forked: React 19 / RSC-safe, token-driven skins
-instead of parallel component forks per OS era.
+A retro OS-skinned React component library built with TypeScript and CSS Modules. Inspired by [React95](https://github.com/react95-io/React95).
 
 Storybook: https://gregrickaby.github.io/type95/
 
