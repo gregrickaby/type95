@@ -1,0 +1,29 @@
+/**
+ * TODO: Windows 10 Fluent skin. Flat design, accent-color system, no
+ * bevels at all — components built around a 4-shade bevel model will need
+ * a flat-border variant, not just new token values. Placeholder only.
+ */
+[data-skin='win10'] {
+  --t95-face: #f3f3f3;
+  --t95-face-text: #000000;
+
+  --t95-border-lightest: #ffffff;
+  --t95-border-light: #e1e1e1;
+  --t95-border-dark: #c8c8c8;
+  --t95-border-darkest: #8a8a8a;
+
+  --t95-titlebar-bg: #0078d7;
+  --t95-titlebar-bg-end: #0078d7;
+  --t95-titlebar-text: #ffffff;
+  --t95-titlebar-bg-inactive: #f3f3f3;
+  --t95-titlebar-text-inactive: #6d6d6d;
+
+  --t95-highlight-bg: #0078d7;
+  --t95-highlight-text: #ffffff;
+  --t95-disabled-text: #a0a0a0;
+
+  --t95-font: 'Segoe UI', Tahoma, sans-serif;
+  --t95-font-size: 12px;
+  --t95-radius: 2px;
+  --t95-focus-outline: 1px dotted #000000;
+}

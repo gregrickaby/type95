@@ -1,0 +1,28 @@
+/**
+ * Windows 98: same bevel palette as 95, only the title bar changed
+ * ("web style" gradient, active-window blue fading to light blue).
+ */
+[data-skin='win98'] {
+  --t95-face: #c0c0c0;
+  --t95-face-text: #000000;
+
+  --t95-border-lightest: #ffffff;
+  --t95-border-light: #dfdfdf;
+  --t95-border-dark: #808080;
+  --t95-border-darkest: #000000;
+
+  --t95-titlebar-bg: #0a246a;
+  --t95-titlebar-bg-end: #a6caf0;
+  --t95-titlebar-text: #ffffff;
+  --t95-titlebar-bg-inactive: #808080;
+  --t95-titlebar-text-inactive: #c0c0c0;
+
+  --t95-highlight-bg: #0a246a;
+  --t95-highlight-text: #ffffff;
+  --t95-disabled-text: #808080;
+
+  --t95-font: 'MS Sans Serif', Tahoma, sans-serif;
+  --t95-font-size: 11px;
+  --t95-radius: 0px;
+  --t95-focus-outline: 1px dotted #000000;
+}

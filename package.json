@@ -1,0 +1,82 @@
+{
+  "name": "type95",
+  "private": true,
+  "description": "Retro OS-skinned React component library: Windows 95, 98, XP, 7, 10 (WIP)",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "author": "Greg Rickaby <greg@gregrickaby.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gregrickaby/type95.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tokens/*.css": "./dist/tokens/*.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsup",
+    "build-storybook": "storybook build",
+    "format": "prettier '**/*.{mjs,cjs,js,jsx,ts,tsx,md,css,json,yml,yaml}' --ignore-path .prettierignore --cache --write",
+    "format:check": "prettier '**/*.{mjs,cjs,js,jsx,ts,tsx,md,css,json,yml,yaml}' --ignore-path .prettierignore --check",
+    "lint": "eslint --fix",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run format && npm run typecheck && npm run lint",
+    "validate:ci": "npm run format:check && npm run typecheck && npm run lint && npm run test:coverage"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@evilmartians/lefthook": "^2.1.10",
+    "@storybook/addon-a11y": "^10.5.3",
+    "@storybook/react-vite": "^10.5.3",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest-axe": "^3.5.9",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/ui": "^4.1.10",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "jest-axe": "^10.0.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.9.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "storybook": "^10.5.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0",
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "@evilmartians/lefthook@2.1.10": true
+  }
+}

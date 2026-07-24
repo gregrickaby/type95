@@ -1,0 +1,29 @@
+/**
+ * Windows 95: flat title bar, no gradient. Baseline bevel palette lives in
+ * base.css already matches 95's defaults — this file exists so `data-skin`
+ * always has an explicit match rather than relying on :root fallthrough.
+ */
+[data-skin='win95'] {
+  --t95-face: #c0c0c0;
+  --t95-face-text: #000000;
+
+  --t95-border-lightest: #ffffff;
+  --t95-border-light: #dfdfdf;
+  --t95-border-dark: #808080;
+  --t95-border-darkest: #000000;
+
+  --t95-titlebar-bg: #000080;
+  --t95-titlebar-bg-end: #000080;
+  --t95-titlebar-text: #ffffff;
+  --t95-titlebar-bg-inactive: #808080;
+  --t95-titlebar-text-inactive: #c0c0c0;
+
+  --t95-highlight-bg: #000080;
+  --t95-highlight-text: #ffffff;
+  --t95-disabled-text: #808080;
+
+  --t95-font: 'MS Sans Serif', Tahoma, sans-serif;
+  --t95-font-size: 11px;
+  --t95-radius: 0px;
+  --t95-focus-outline: 1px dotted #000000;
+}

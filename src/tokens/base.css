@@ -1,0 +1,33 @@
+/**
+ * Base token fallbacks. Every component references only these custom
+ * properties, never a literal color/border value. A skin file (win95.css,
+ * win98.css, ...) overrides them under `[data-skin="..."]`. These :root
+ * defaults keep components usable even if no skin is applied.
+ *
+ * Deliberately no global element reset (*, body, html) here — this file is
+ * imported into a consumer's app, not a page owned by this library.
+ */
+:root {
+  --t95-face: #c0c0c0;
+  --t95-face-text: #000000;
+
+  --t95-border-lightest: #ffffff;
+  --t95-border-light: #dfdfdf;
+  --t95-border-dark: #808080;
+  --t95-border-darkest: #000000;
+
+  --t95-titlebar-bg: #000080;
+  --t95-titlebar-bg-end: #000080;
+  --t95-titlebar-text: #ffffff;
+  --t95-titlebar-bg-inactive: #808080;
+  --t95-titlebar-text-inactive: #c0c0c0;
+
+  --t95-highlight-bg: #000080;
+  --t95-highlight-text: #ffffff;
+  --t95-disabled-text: #808080;
+
+  --t95-font: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+  --t95-font-size: 11px;
+  --t95-radius: 0px;
+  --t95-focus-outline: 1px dotted #000000;
+}

@@ -1,0 +1,29 @@
+/**
+ * Windows XP (Luna blue): warm gray face, rounded corners, gradient title
+ * bar, Tahoma default font. Biggest jump from the 9x-era tokens — first
+ * skin to use --t95-radius for anything other than 0.
+ */
+[data-skin='winxp'] {
+  --t95-face: #ece9d8;
+  --t95-face-text: #000000;
+
+  --t95-border-lightest: #ffffff;
+  --t95-border-light: #d4d0c8;
+  --t95-border-dark: #716f64;
+  --t95-border-darkest: #000000;
+
+  --t95-titlebar-bg: #0058e6;
+  --t95-titlebar-bg-end: #3593ff;
+  --t95-titlebar-text: #ffffff;
+  --t95-titlebar-bg-inactive: #7a96df;
+  --t95-titlebar-text-inactive: #d6dffc;
+
+  --t95-highlight-bg: #316ac5;
+  --t95-highlight-text: #ffffff;
+  --t95-disabled-text: #acaa97;
+
+  --t95-font: Tahoma, 'Segoe UI', sans-serif;
+  --t95-font-size: 11px;
+  --t95-radius: 6px;
+  --t95-focus-outline: 1px dotted #000000;
+}

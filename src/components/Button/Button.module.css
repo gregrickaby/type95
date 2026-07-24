@@ -1,0 +1,35 @@
+.button {
+  min-width: 75px;
+  padding: 4px 12px;
+  border: none;
+  border-radius: var(--t95-radius);
+  background: var(--t95-face);
+  color: var(--t95-face-text);
+  font-family: var(--t95-font);
+  font-size: var(--t95-font-size);
+  cursor: pointer;
+  box-shadow:
+    inset -1px -1px var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-lightest),
+    inset -2px -2px var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-light);
+}
+
+.button:active:not(:disabled) {
+  padding: 5px 11px 3px 13px;
+  box-shadow:
+    inset 1px 1px var(--t95-border-darkest),
+    inset -1px -1px var(--t95-border-lightest),
+    inset 2px 2px var(--t95-border-dark),
+    inset -2px -2px var(--t95-border-light);
+}
+
+.button:focus-visible {
+  outline: var(--t95-focus-outline);
+  outline-offset: -4px;
+}
+
+.button:disabled {
+  color: var(--t95-disabled-text);
+  cursor: default;
+}
