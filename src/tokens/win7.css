@@ -1,8 +1,10 @@
 /**
- * TODO: Windows 7 Aero skin. Real Aero used glass translucency
- * (backdrop-filter/blur) and layered gradients on title bars and buttons —
- * needs its own design pass, not just token substitution. Placeholder
- * values only so `data-skin="win7"` doesn't fall through silently.
+ * Windows 7 Aero. Title bar glass translucency (backdrop-filter/blur) is
+ * still TODO — needs its own design pass beyond a component that only
+ * exists for Button so far. Button, however, is sourced: recipe below is
+ * from khang-nd/7.css (see docs/visual-reference.md), including its
+ * pulsing focus-glow animation. --t95-radius corrected from a guessed
+ * 4px to the sourced 3px.
  */
 [data-skin='win7'] {
   --t95-face: #f0f0f0;
@@ -21,10 +23,46 @@
 
   --t95-highlight-bg: #3399ff;
   --t95-highlight-text: #ffffff;
-  --t95-disabled-text: #a0a0a0;
+  --t95-disabled-text: #838383;
 
   --t95-font: 'Segoe UI', Tahoma, sans-serif;
   --t95-font-size: 12px;
-  --t95-radius: 4px;
+  --t95-radius: 3px;
   --t95-focus-outline: 1px dotted #000000;
+
+  --t95-button-border: 1px solid #8e8f8f;
+  --t95-button-border-hover: 1px solid #3c7fb1;
+  --t95-button-border-active: 1px solid #6d91ab;
+  --t95-button-border-disabled: 1px solid #adb2b5;
+
+  --t95-button-background: linear-gradient(#f2f2f2 45%, #ebebeb 45%, #cfcfcf);
+  --t95-button-background-hover: linear-gradient(
+    #eaf6fd 45%,
+    #bee6fd 45%,
+    #a7d9f5
+  );
+  --t95-button-background-active: linear-gradient(
+    #e5f4fc,
+    #c4e5f6 30% 50%,
+    #98d1ef 50%,
+    #68b3db
+  );
+  --t95-button-background-disabled: #f4f4f4;
+
+  --t95-button-shadow: inset 0 0 0 1px #fffc;
+  --t95-button-shadow-hover: inset 0 0 0 1px #fffc;
+  --t95-button-shadow-active: inset 1px 1px 0 #0003, inset -1px 1px 0 #0001;
+  --t95-button-shadow-focus: inset 0 0 0 2px #98d1ef;
+
+  --t95-button-disabled-text-shadow: none;
+  --t95-button-animation: t95-button-pulse 1s ease infinite alternate;
+}
+
+@keyframes t95-button-pulse {
+  from {
+    box-shadow: inset 0 0 3px 1px rgba(52, 222, 255, 0.87);
+  }
+  to {
+    box-shadow: inset 0 0 1px 1px rgba(52, 222, 255, 0.87);
+  }
 }

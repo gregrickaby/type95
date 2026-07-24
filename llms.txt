@@ -41,7 +41,7 @@ Switch skins live (no re-render) with `setSkin('winxp')` from `type95`.
 
 ## Tokens
 
-18 `--t95-*` custom properties drive every component's
+31 `--t95-*` custom properties drive every component's
 styling (see `llms-full.txt` or `src/tokens/base.css` for the full list
 with values). Never hardcode a color/border/font in a consuming
 component — read a token instead so it keeps working across skins.

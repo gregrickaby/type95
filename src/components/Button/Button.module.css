@@ -1,35 +1,54 @@
+/**
+ * Every value here is a --t95-button-* token (see src/tokens/base.css and
+ * docs/visual-reference.md) — no hardcoded colors, no skin branching.
+ * Rest/hover/active/focus/disabled recipes differ enough per Windows era
+ * (flat bevel vs. border+gradient vs. accent-color fill) that they can't
+ * collapse to a handful of shared shade tokens, so each state pulls a
+ * complete border/background/box-shadow value from its own token.
+ *
+ * Rule order is deliberate: :focus-visible, then :hover, then :active —
+ * later rules win the cascade at equal specificity, so a button that's
+ * simultaneously pressed and focused (the common case while clicking)
+ * still reads as "pressed", matching real Windows behavior.
+ */
 .button {
+  box-sizing: border-box;
   min-width: 75px;
-  padding: 4px 12px;
-  border: none;
+  min-height: 23px;
+  padding: 0 12px;
+  border: var(--t95-button-border);
   border-radius: var(--t95-radius);
-  background: var(--t95-face);
+  background: var(--t95-button-background);
   color: var(--t95-face-text);
   font-family: var(--t95-font);
   font-size: var(--t95-font-size);
   cursor: pointer;
-  box-shadow:
-    inset -1px -1px var(--t95-border-darkest),
-    inset 1px 1px var(--t95-border-lightest),
-    inset -2px -2px var(--t95-border-dark),
-    inset 2px 2px var(--t95-border-light);
-}
-
-.button:active:not(:disabled) {
-  padding: 5px 11px 3px 13px;
-  box-shadow:
-    inset 1px 1px var(--t95-border-darkest),
-    inset -1px -1px var(--t95-border-lightest),
-    inset 2px 2px var(--t95-border-dark),
-    inset -2px -2px var(--t95-border-light);
+  box-shadow: var(--t95-button-shadow);
 }
 
 .button:focus-visible {
   outline: var(--t95-focus-outline);
   outline-offset: -4px;
+  box-shadow: var(--t95-button-shadow-focus);
+  animation: var(--t95-button-animation, none);
+}
+
+.button:not(:disabled):hover {
+  border: var(--t95-button-border-hover);
+  background: var(--t95-button-background-hover);
+  box-shadow: var(--t95-button-shadow-hover);
+}
+
+.button:not(:disabled):active {
+  border: var(--t95-button-border-active);
+  background: var(--t95-button-background-active);
+  box-shadow: var(--t95-button-shadow-active);
 }
 
 .button:disabled {
+  border: var(--t95-button-border-disabled);
+  background: var(--t95-button-background-disabled);
   color: var(--t95-disabled-text);
+  text-shadow: var(--t95-button-disabled-text-shadow);
   cursor: default;
 }

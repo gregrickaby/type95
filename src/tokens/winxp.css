@@ -2,6 +2,13 @@
  * Windows XP (Luna blue): warm gray face, rounded corners, gradient title
  * bar, Tahoma default font. Biggest jump from the 9x-era tokens — first
  * skin to use --t95-radius for anything other than 0.
+ *
+ * Button recipe sourced from botoxparty/XP.css's `themes/XP` (the Luna
+ * theme override, not the top-level `gui/` which renders Windows Classic
+ * — see docs/visual-reference.md). Luna buttons are border+gradient, not
+ * a bevel: --t95-radius corrected from a guessed 6px to the sourced 3px.
+ * Disabled border/background aren't in the fetched source excerpt —
+ * approximated from the disabled text color already set below.
  */
 [data-skin='winxp'] {
   --t95-face: #ece9d8;
@@ -24,6 +31,38 @@
 
   --t95-font: Tahoma, 'Segoe UI', sans-serif;
   --t95-font-size: 11px;
-  --t95-radius: 6px;
+  --t95-radius: 3px;
   --t95-focus-outline: 1px dotted #000000;
+
+  --t95-button-border: 1px solid #003c74;
+  --t95-button-border-hover: 1px solid #003c74;
+  --t95-button-border-active: 1px solid #003c74;
+  --t95-button-border-disabled: 1px solid #b5b5b5;
+
+  --t95-button-background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #ecebe5 86%,
+    #d8d0c4 100%
+  );
+  --t95-button-background-hover: var(--t95-button-background);
+  --t95-button-background-active: linear-gradient(
+    180deg,
+    #cdcac3 0%,
+    #e3e3db 8%,
+    #e5e5de 94%,
+    #f2f2f1 100%
+  );
+  --t95-button-background-disabled: #ece9d8;
+
+  --t95-button-shadow: none;
+  --t95-button-shadow-hover:
+    inset -1px 1px #fff0cf, inset 1px 2px #fdd889, inset -2px 2px #fbc761,
+    inset 2px -2px #e5a01a;
+  --t95-button-shadow-active: none;
+  --t95-button-shadow-focus:
+    inset -1px 1px #cee7ff, inset 1px 2px #98b8ea, inset -2px 2px #bcd4f6,
+    inset 1px -1px #89ade4, inset 2px -2px #89ade4;
+
+  --t95-button-disabled-text-shadow: none;
 }

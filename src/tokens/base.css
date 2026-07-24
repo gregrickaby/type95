@@ -9,12 +9,16 @@
  */
 :root {
   --t95-face: #c0c0c0;
-  --t95-face-text: #000000;
+  /* #222222, not pure black — matches jdan/98.css's measured --text-color
+     (see docs/visual-reference.md). */
+  --t95-face-text: #222222;
 
   --t95-border-lightest: #ffffff;
   --t95-border-light: #dfdfdf;
   --t95-border-dark: #808080;
-  --t95-border-darkest: #000000;
+  /* #0a0a0a, not pure black — matches jdan/98.css's measured
+     --window-frame (see docs/visual-reference.md). */
+  --t95-border-darkest: #0a0a0a;
 
   --t95-titlebar-bg: #000080;
   --t95-titlebar-bg-end: #000080;
@@ -30,4 +34,34 @@
   --t95-font-size: 11px;
   --t95-radius: 0px;
   --t95-focus-outline: 1px dotted #000000;
+
+  /* Button recipe tokens — see docs/visual-reference.md for sourcing.
+     Defaults here are the win95/98 flat-bevel recipe; XP/7/10 override
+     every one of these (their buttons use border+gradient, not a bevel).
+     --t95-button-animation is intentionally unset here: only win7.css
+     defines it, everything else falls back to `none` at the use site. */
+  --t95-button-border: none;
+  --t95-button-border-hover: none;
+  --t95-button-border-active: none;
+  --t95-button-border-disabled: none;
+
+  --t95-button-background: var(--t95-face);
+  --t95-button-background-hover: var(--t95-face);
+  --t95-button-background-active: var(--t95-face);
+  --t95-button-background-disabled: var(--t95-face);
+
+  --t95-button-shadow:
+    inset -1px -1px var(--t95-border-darkest),
+    inset 1px 1px var(--t95-border-lightest),
+    inset -2px -2px var(--t95-border-dark),
+    inset 2px 2px var(--t95-border-light);
+  --t95-button-shadow-hover: var(--t95-button-shadow);
+  --t95-button-shadow-active:
+    inset 1px 1px var(--t95-border-darkest),
+    inset -1px -1px var(--t95-border-lightest),
+    inset 2px 2px var(--t95-border-dark),
+    inset -2px -2px var(--t95-border-light);
+  --t95-button-shadow-focus: none;
+
+  --t95-button-disabled-text-shadow: 1px 1px 0 var(--t95-border-lightest);
 }

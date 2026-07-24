@@ -1,7 +1,14 @@
 /**
  * TODO: Windows 10 Fluent skin. Flat design, accent-color system, no
- * bevels at all — components built around a 4-shade bevel model will need
- * a flat-border variant, not just new token values. Placeholder only.
+ * bevels at all — title bar/window chrome still needs its own design
+ * pass beyond a component that only exists for Button so far.
+ *
+ * Button recipe below is a best-effort approximation, not pixel-measured
+ * — no equivalent to 98.css/XP.css/7.css exists for Windows 10 (see
+ * docs/visual-reference.md). Based on Microsoft's documented Fluent
+ * corner-radius spec and the `#0078D4`-family Windows blue accent color
+ * used across native Win32/WinForms hover states on Windows 10. Revisit
+ * if a better source turns up.
  */
 [data-skin='win10'] {
   --t95-face: #f3f3f3;
@@ -26,4 +33,21 @@
   --t95-font-size: 12px;
   --t95-radius: 2px;
   --t95-focus-outline: 1px dotted #000000;
+
+  --t95-button-border: 1px solid #8a8a8a;
+  --t95-button-border-hover: 1px solid #0078d7;
+  --t95-button-border-active: 1px solid #005a9e;
+  --t95-button-border-disabled: 1px solid #e1e1e1;
+
+  --t95-button-background: #f3f3f3;
+  --t95-button-background-hover: #e5f1fb;
+  --t95-button-background-active: #cce4f7;
+  --t95-button-background-disabled: #f3f3f3;
+
+  --t95-button-shadow: none;
+  --t95-button-shadow-hover: none;
+  --t95-button-shadow-active: none;
+  --t95-button-shadow-focus: none;
+
+  --t95-button-disabled-text-shadow: none;
 }

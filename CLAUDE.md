@@ -171,6 +171,10 @@ single top-level one.
 - Regenerate `llms.txt`/`llms-full.txt`/`mcp-server/data/mcp-data.json`
   (`npm run generate:llms`) when a component's public props or JSDoc
   changes
+- Check `docs/visual-reference.md` before guessing a color/measurement for
+  any component — it points to pixel-measured sources per era (98.css,
+  XP.css, 7.css, Microsoft's Fluent docs, GUIdebook screenshots) and holds
+  a table of values already extracted for `Button`
 
 ⚠️ **Ask before:** publishing to npm, creating a GitHub remote, pushing,
 adding dependencies, or renaming the package.
